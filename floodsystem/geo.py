@@ -39,4 +39,16 @@ def stations_within_radius(stations, centre, r):
     # stations is a list of MonitoringStation objects, centre is the coordinate x and r is the radius
     # the function builds a list of stations within a given radius of a given coordinate
 
+    distances = []
+    names = []
     
+    for i in stations:
+        distances.append(haversine(centre, i.coord))
+        names.append(i.name)
+    
+    namesandDistances = list(zip(names,distances))
+    #return list(zip(*namesandDistances))[1]
+
+    return namesandDistances[0].name
+
+
