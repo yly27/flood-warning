@@ -38,32 +38,6 @@ def stations_by_distance(stations, p):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-'''Task 1D Part 1'''
-def stations_by_river(stations):
-    for i in stations:
-
-
-
-
-
     
 
     
