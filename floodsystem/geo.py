@@ -14,7 +14,7 @@ import numpy as np
 from floodsystem.datafetcher import fetch_station_data
 
 
-
+'''Task 1B'''
 stations = build_station_list
 def stations_by_distance(stations, p):
     # stations is a list of MonitoringStation objects and p is a coordinate
@@ -33,19 +33,10 @@ def stations_by_distance(stations, p):
     big_list = list(zip(names,towns,distances))
     return(sorted_by_key((big_list),2))
 
-    
+'''Task 1C'''
+stations = build_station_list
+def stations_within_radius(stations, centre, r):
+    # stations is a list of MonitoringStation objects, centre is the coordinate x and r is the radius
+    # the function builds a list of stations within a given radius of a given coordinate
 
     
-    
-
-   
-
-
-  
-    
-    
-    
-
-
-
-
