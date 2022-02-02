@@ -38,17 +38,17 @@ stations = build_station_list
 def stations_within_radius(stations, centre, r):
     # stations is a list of MonitoringStation objects, centre is the coordinate x and r is the radius
     # the function builds a list of stations within a given radius of a given coordinate
-
-    distances = []
-    names = []
+    stationsinRadius = []
+    big_list2 = stations_by_distance(stations, centre)
     
-    for i in stations:
-        distances.append(haversine(centre, i.coord))
-        names.append(i.name)
+    #checking if radius < r
+    for j, stations in enumerate(stations):
+        if big_list2[j][2] < r:
+            stationsinRadius.append(big_list2[j][0])
+        
+        else:
+            break
     
-    namesandDistances = list(zip(names,distances))
-    #return list(zip(*namesandDistances))[1]
-
-    return namesandDistances[0].name
+    return stationsinRadius
 
 
