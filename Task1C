@@ -13,7 +13,7 @@ def run():
 
     #Stations within radius 10 km of the Cambridge city centre, in alphabetical order
     stationsinRadius = stations_within_radius(stations,(52.2053,0.1218),10)
-    print(stationsinRadius)
+    print(sorted(stationsinRadius))
 
 if __name__ == "__main__":
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
