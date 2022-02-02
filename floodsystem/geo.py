@@ -42,7 +42,7 @@ def stations_within_radius(stations, centre, r):
     big_list2 = stations_by_distance(stations, centre)
     
     #checking if radius < r
-    for j, stations in enumerate(stations):
+    for j, station in enumerate(big_list2):
         if big_list2[j][2] < r:
             stationsinRadius.append(big_list2[j][0])
         
