@@ -1,4 +1,4 @@
-from floodsystem.geo import stations_by_distance
+from floodsystem.geo import rivers_with_station
 from sympy import stationary_points
 from floodsystem.utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
@@ -13,9 +13,14 @@ def run():
     # Build list of stations
     stations = build_station_list()
     
-    def rivers_with_station(stations):
-        print('hi')
-  
+    river_stations_list = (rivers_with_station(stations))
+
+    #Prints number of rivers with at least one monitoring stations
+    print(len(river_stations_list))
+
+    #Prints first 10 of this list
+    print(list(river_stations_list)[:10])
+
 
 if __name__ == "__main__":
     print("*** Task 1D: CUED Part IA Flood Warning System ***")

@@ -52,3 +52,22 @@ def stations_within_radius(stations, centre, r):
     return stationsinRadius
 
 
+'''Task 1D'''
+def rivers_with_station(stations):
+
+    #Builds a set with the name of every river witha monitoring station
+    river_stations_list = set()
+    for i in stations:
+        river_stations_list.add(i.river)
+
+    #Alphabetically sorted set  
+    return sorted(river_stations_list)
+
+def stations_by_river(stations):
+    river_dict = {}
+
+    for i in stations:
+        river_dict.a
+
+
+    
