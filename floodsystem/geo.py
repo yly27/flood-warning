@@ -12,7 +12,7 @@ from .station import MonitoringStation
 from .stationdata import build_station_list
 import numpy as np
 from floodsystem.datafetcher import fetch_station_data
-
+from collections import defaultdict   
 
 '''Task 1B'''
 stations = build_station_list
@@ -63,11 +63,12 @@ def rivers_with_station(stations):
     #Alphabetically sorted set  
     return sorted(river_stations_list)
 
+
+#Task 1D Part 2
 def stations_by_river(stations):
-    river_dict = {}
-
+    river_dict = defaultdict(list)
     for i in stations:
-        river_dict.a
-
+        river_dict[i.river].append(i.name)
+    return(river_dict)
 
     
