@@ -78,9 +78,21 @@ def rivers_by_station_number(stations, N):
 
 #list of rivers and how many stations they have 
     numberofStations = []
+
     for key, value in stationsbyRiver.items():
         numberofStations.append((key, len(value)))
-
+    
 #sort list largest to smallest
     numberofStations = sorted_by_key(numberofStations, 1, reverse = True)
-    return numberofStations[:N]
+    
+#seeing how many duplicates there are below N
+    count = 0
+    n = N
+    for item in range(0,n):
+        if numberofStations[item][1] == numberofStations[(item+1)][1]:
+            count += 1
+            n += 1
+                
+    return numberofStations[:N+count]
+
+    
