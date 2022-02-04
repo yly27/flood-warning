@@ -72,3 +72,15 @@ def stations_by_river(stations):
     return(river_dict)
 
     
+'''Task 1E'''
+def rivers_by_station_number(stations, N):
+    stationsbyRiver = stations_by_river(stations)
+
+#list of rivers and how many stations they have 
+    numberofStations = []
+    for key, value in stationsbyRiver.items():
+        numberofStations.append((key, len(value)))
+
+#sort list largest to smallest
+    numberofStations = sorted_by_key(numberofStations, 1, reverse = True)
+    return numberofStations[:N]
