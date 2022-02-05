@@ -38,3 +38,16 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    '''Task 1F'''
+    def typical_range_consistent(self):
+        #if range doesn't exist in the data
+        if not self.typical_range:
+            return False
+
+        #if reported typical high range is less than the reported typical lower range
+        elif self.typical_range[1] < self.typical_range[0]:
+            return False
+        
+        else:
+            return True
