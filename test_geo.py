@@ -18,15 +18,6 @@ def test_stations_by_distance():
     assert round(geo.stations_by_distance(tester_station, (0, 0))[0][2]) == 4
             
 
-'''Task 1C Test'''
-def test_stations_within_radius():
-    
-
-''''Task 1D Test'''
-def test_rivers_with_station():
-
-def test_stations_by_river():
-
 
 
 
