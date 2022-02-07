@@ -2,10 +2,8 @@
 #
 # SPDX-License-Identifier: MIT
 """This module contains a collection of functions related to
-geographical data.
+geographical data."""
 
-"""
-from sympy import stationary_points
 from .utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
 from .station import MonitoringStation
@@ -94,5 +92,7 @@ def rivers_by_station_number(stations, N):
             n += 1
                 
     return numberofStations[:N+count]
+
+    
 
     
