@@ -42,7 +42,7 @@ class MonitoringStation:
     '''Task 1F'''
     def typical_range_consistent(self):
         #if range doesn't exist in the data
-        if not self.typical_range:
+        if self.typical_range == None:
             return False
 
         #if reported typical high range is less than the reported typical lower range
@@ -51,3 +51,12 @@ class MonitoringStation:
         
         else:
             return True
+
+
+def inconsistent_typical_range_stations(stations):
+    """Returns an unsorted list of stations with typical range errors"""
+    inconsistencies = []
+    for i in stations:
+        if not i.typical_range_consistent():
+            inconsistencies.append(i.name)
+    return inconsistencies
