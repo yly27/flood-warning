@@ -22,7 +22,7 @@ tester_station = [MonitoringStation(
 '''Task 1B Test'''
 def test_stations_by_distance():
     assert len(geo.stations_by_distance(stations, (0, 0))) >0
-    assert round(geo.stations_by_distance(tester_station, (0, 0))[0][2]) == 472
+    assert round(geo.stations_by_distance(tester_station, (0, 0))[0][2]) == 497
 
 '''Task 1C Test'''
 def test_stations_within_radius():
