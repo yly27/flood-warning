@@ -6,6 +6,9 @@ from test_station import test_create_monitoring_station
 stations = build_station_list()
 tester_station = test_create_monitoring_station()
 
+'''Task 1B Test'''
+def test_stations_by_distance():
+    assert len(geo.stations_by_distance(stations, (0, 0))) >0
 
 '''Task 1C Test'''
 def test_stations_within_radius():
@@ -16,12 +19,12 @@ def test_stations_within_radius():
 
 '''Task 1D Test'''
 def test_rivers_with_station():
+    stations.append(tester_station)
     assert len(geo.rivers_with_station(stations)) > 0
     assert geo.rivers_with_station(tester_station) == ['River X']
 
 def test_stations_by_river():
-    assert type(geo.stations_by_river) == dict
     assert len(geo.stations_by_river(stations)['River Cam']) > 5
-
+    
 
 
