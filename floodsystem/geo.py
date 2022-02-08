@@ -23,7 +23,7 @@ def stations_by_distance(stations, p):
     names = []
     towns = []
 
-    for i in list(stations):
+    for i in stations:
         distances.append(haversine(p, i.coord)) 
         names.append(i.name)
         towns.append(i.town) 
