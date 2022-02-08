@@ -19,7 +19,6 @@ def test_stations_within_radius():
 
 '''Task 1D Test'''
 def test_rivers_with_station():
-    stations.append(tester_station)
     assert len(geo.rivers_with_station(stations)) > 0
     assert geo.rivers_with_station(tester_station) == ['River X']
 

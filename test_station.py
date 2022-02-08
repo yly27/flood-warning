@@ -17,6 +17,7 @@ def test_create_monitoring_station():
     river = "River X"
     town = "My Town"
     s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    return s
 
     assert s.station_id == s_id
     assert s.measure_id == m_id
