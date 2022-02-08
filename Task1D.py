@@ -1,5 +1,4 @@
 from floodsystem.geo import rivers_with_station, stations_by_river
-from sympy import stationary_points
 from floodsystem.utils import sorted_by_key  # noqa
 from haversine import haversine, Unit
 from floodsystem.station import MonitoringStation
