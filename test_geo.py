@@ -7,22 +7,22 @@ tester_station = [MonitoringStation(
         station_id=1,
         measure_id=10,
         label='Test_Station_1',
-        coord=(float(0.1), float(0.1)),
+        coord=(float(-2), float(4)),
         typical_range=(1, 1.5),
-        river='Test_River_1',
+        river='River_Test',
         town='Test_Town_1'),MonitoringStation(
         station_id=2,
         measure_id=20,
         label='Test_Station_2',
         coord=(float(50), float(0)),
         typical_range=(10, 20),
-        river='River_Test_2',
+        river='River_Test',
         town='Test_Town_2')]
 
 '''Task 1B Test'''
 def test_stations_by_distance():
     assert len(geo.stations_by_distance(stations, (0, 0))) >0
-    assert round(geo.stations_by_distance(tester_station, (0, 0))[0][2]) == 16
+    assert round(geo.stations_by_distance(tester_station, (0, 0))[0][2]) == 472
 
 '''Task 1C Test'''
 def test_stations_within_radius():
@@ -34,10 +34,11 @@ def test_stations_within_radius():
 '''Task 1D Test'''
 def test_rivers_with_station():
     assert len(geo.rivers_with_station(stations)) > 0
-    assert geo.rivers_with_station(tester_station)[0][0] == ['River_Test_2']
+    assert geo.rivers_with_station(tester_station) == ['River_Test']
 
 
 def test_stations_by_river():
+    assert geo.stations_by_river(tester_station) == {'River_Test': ['Test_Station_1', 'Test_Station_2']}
     assert len(geo.stations_by_river(stations)['River Cam']) > 5
     
 
