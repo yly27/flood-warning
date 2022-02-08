@@ -16,12 +16,4 @@ def test_stations_within_radius():
     x = geo.stations_within_radius(stations, (52.2053, 0.1218), 10)
     assert len(x) == 11
     assert type(x) == list
-    assert len(geo.stations_within_radius(stations, (52.2053, 0.1218), 1)<len(geo.stations_within_radius(stations, (52.2053, 0.1218),2)
-
-
-
-
-
-
-
-
+    assert len(geo.stations_within_radius(stations, (52.2053, 0.1218), 1))<len(geo.stations_within_radius(stations, (52.2053, 0.1218),2))
