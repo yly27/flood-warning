@@ -22,8 +22,15 @@ def test_rivers_with_station():
     assert len(geo.rivers_with_station(stations)) > 0
     assert geo.rivers_with_station(tester_station) == ['River X']
 
+
 def test_stations_by_river():
     assert len(geo.stations_by_river(stations)['River Cam']) > 5
     
 
-
+'''Task 1E Test'''
+def test_rivers_by_station_number():
+    sample_list = geo.rivers_by_station_number(stations, 10)
+    #check the list is in numerical order (largest to smallest):
+    assert sample_list[0][1] >= sample_list[1][1]
+    #check that the Thames is the river with the most stations
+    assert sample_list[0][0] == 'River Thames'
