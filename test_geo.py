@@ -34,7 +34,7 @@ def test_stations_within_radius():
 '''Task 1D Test'''
 def test_rivers_with_station():
     assert len(geo.rivers_with_station(stations)) > 0
-    assert geo.rivers_with_station(tester_station)[0] == ['River_Test_1']
+    assert geo.rivers_with_station(tester_station)[0] == ['River_Test_2']
 
 def test_stations_by_river():
     assert len(geo.stations_by_river(stations)['River Cam']) > 5
