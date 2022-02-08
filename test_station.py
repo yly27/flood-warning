@@ -12,7 +12,7 @@ def test_create_monitoring_station():
     s_id = "test-s-id"
     m_id = "test-m-id"
     label = "some station"
-    coord = (0.1, 0.1)
+    coord = (-2, 4)
     trange = (-2.3, 3.4445)
     river = "River X"
     town = "My Town"
