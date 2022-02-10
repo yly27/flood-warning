@@ -6,6 +6,7 @@ for manipulating/modifying station data
 
 """
 
+from stationdata import build_station_list
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -55,11 +56,14 @@ class MonitoringStation:
 
     '''Task 2B part a'''
     def relative_water_level(self):
-        
-        if self.relative_water_level != None and self.typical_range_consistent():
-            return('Viable')
-
-
+        if self.latest_level != None and self.typical_range_consistent():
+            range_interval = self.typical_range[1] - self.typical_range[0]
+            ratio = (self.latest_level - self.typical_range[0])/range_interval
+            return ratio
+        else:
+            return None
+            
+   
 
 '''Task 1F part b'''
 def inconsistent_typical_range_stations(stations):
@@ -69,5 +73,6 @@ def inconsistent_typical_range_stations(stations):
         if not i.typical_range_consistent():
             inconsistencies.append(i.name)
     return inconsistencies
+
 
     
