@@ -1,6 +1,5 @@
-
-from floodsystem.station import MonitoringStation, relative_water_level
-from floodsystem.stationdata import build_station_list
+from floodsystem.station import MonitoringStation
+from floodsystem.stationdata import build_station_list, update_water_levels
 
 
 '''Task 2B part b'''
