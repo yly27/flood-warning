@@ -29,6 +29,7 @@ class MonitoringStation:
 
         self.latest_level = None
 
+
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
         d += "   id:            {}\n".format(self.station_id)
@@ -39,7 +40,7 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
 
-    '''Task 1F'''
+    '''Task 1F part a'''
     def typical_range_consistent(self):
         #if range doesn't exist in the data
         if self.typical_range == None:
@@ -52,7 +53,17 @@ class MonitoringStation:
         else:
             return True
 
+    '''Task 2B part a'''
+    def relative_water_level(self):
+        if self.latest_level != None and self.typical_range_consistent():
+            range_interval = self.typical_range[1] - self.typical_range[0]
+            ratio = (self.latest_level - self.typical_range[0])/range_interval
+            return float(ratio)
+        else:
+            return None
+   
 
+'''Task 1F part b'''
 def inconsistent_typical_range_stations(stations):
     """Returns an unsorted list of stations with typical range errors"""
     inconsistencies = []
@@ -60,3 +71,6 @@ def inconsistent_typical_range_stations(stations):
         if not i.typical_range_consistent():
             inconsistencies.append(i.name)
     return inconsistencies
+
+
+    

@@ -30,18 +30,15 @@ def test_stations_within_radius():
     assert len(geo.stations_within_radius(stations, (52.2053, 0.1218), 10)) > 0
     assert len(geo.stations_within_radius(stations, (52.2053, 0.1218), 5)) > len(geo.stations_within_radius(stations, (52.2053, 0.1218), 1))
 
-
 '''Task 1D Test'''
 def test_rivers_with_station():
     assert len(geo.rivers_with_station(stations)) > 0
     assert geo.rivers_with_station(tester_station) == ['River_Test']
 
-
 def test_stations_by_river():
     assert geo.stations_by_river(tester_station) == {'River_Test': ['Test_Station_1', 'Test_Station_2']}
     assert len(geo.stations_by_river(stations)['River Cam']) > 5
     
-
 '''Task 1E Test'''
 def test_rivers_by_station_number():
     sample_list = geo.rivers_by_station_number(stations, 10)
