@@ -16,10 +16,10 @@ def run():
     river_stations_list = (rivers_with_station(stations))
 
     #Prints number of rivers with at least one monitoring stations
-   # print(len(river_stations_list))
+    print(len(river_stations_list))
 
     #Prints first 10 of this list
-    #print(list(river_stations_list)[:10])
+    print(list(river_stations_list)[:10])
 
     
 
