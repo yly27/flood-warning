@@ -25,19 +25,17 @@ def stations_level_over_threshold(stations, tol):
 
 '''Task 2C'''
 def stations_highest_rel_level(stations, N):
-    station_names = [], relative_levels = []
+    high_water_levels = []
+    
     for i in stations:
-        if i.relative_water_level() == False:
+        if (i.relative_water_level() == None) or (i.relative_water_level() > 100 ):
             pass
         else:
             #list of all stations and their relative water level
-            station_names.append(i.name)
-            relative_levels.append(i.relative_water_level)
+            high_water_levels.append((i.name, i.relative_water_level()))
 
-    #combining the two lists into a list of tuples
-    station_biglist = list(zip(station_names, relative_levels))
-
+    
     #sort list biggest to smallest
-    station_biglist = sorted_by_key(station_biglist, 1, reverse = False)  
+    high_water_levels = sorted_by_key(high_water_levels, 1, reverse = True)  
 
-    return station_biglist[:N]
+    return high_water_levels[:N]

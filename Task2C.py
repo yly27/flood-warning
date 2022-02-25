@@ -10,12 +10,7 @@ stations = build_station_list()
 update_water_levels(stations)
 
 #find top 10 most at risk
-at_risk = stations_highest_rel_level(stations, 10)
-
-for i in at_risk:
-        print(i.name, i.relative_water_level())
-    
-    
+print(stations_highest_rel_level(stations, 10))
 
 if __name__ == "__main__":
     print("*** Task 1F: CUED Part IA Flood Warning System ***")
