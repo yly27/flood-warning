@@ -13,7 +13,7 @@ def stations_level_over_threshold(stations, tol):
     for i in stations:
         if (i.relative_water_level() != None) and (i.relative_water_level() > tol):
             if i.relative_water_level() < 100:
-                big_list.append((i, i.relative_water_level()))
+                big_list.append((i.name, i.relative_water_level()))
 
         big_list = sorted(big_list, key = lambda x:-x[1])
 
