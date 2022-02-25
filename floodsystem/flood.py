@@ -20,7 +20,9 @@ def station_level_over_threshold(stations, tol):
 
 '''Task 2C'''
 def stations_highest_rel_level(stations, N):
-    station_names = [], relative_levels = []
+    station_names = []
+    relative_levels = []
+    
     for i in stations:
         if i.relative_water_level() == False:
             pass
