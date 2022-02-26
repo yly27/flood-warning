@@ -17,7 +17,8 @@ def run():
     #List of 5 station names with highest current relative water levels
     at_risk_names = []
     for i in stations_highest_rel_level(station, 5):
-        at_risk_names.append(i[0])
+        at_risk_names.append(i[0].name)
+
 
     #Station data for these 5 at risk stations
     station_data = []
@@ -26,7 +27,7 @@ def run():
             if i.name == at_risk_names[k]:
                 station_data.append(i) 
 
-
+   
     #Fetching data over the past 10 days for each at risk station
     for i in station_data:
         dates, levels = fetch_measure_levels(i.measure_id, dt = datetime.timedelta(days = 10))
