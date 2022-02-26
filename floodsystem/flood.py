@@ -12,7 +12,7 @@ def stations_level_over_threshold(stations, tol):
     #Locates stations with relative water level is over tol and adds to a list
     for i in stations:
         if (i.relative_water_level() != None) and (i.relative_water_level() > tol):
-            if i.relative_water_level() < 100:
+            if i.relative_water_level() < 10:
                 big_list.append((i.name, i.relative_water_level()))
 
         big_list = sorted(big_list, key = lambda x:-x[1])
@@ -28,7 +28,7 @@ def stations_highest_rel_level(stations, N):
     high_water_levels = []
     
     for i in stations:
-        if (i.relative_water_level() == None) or (i.relative_water_level() > 100 ):
+        if (i.relative_water_level() == None) or (i.relative_water_level() > 10 ):
             pass
         else:
             #list of all stations and their relative water level
