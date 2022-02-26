@@ -13,6 +13,11 @@ def plot_water_levels(station, dates, levels):
     plt.xticks(rotation=45)
     plt.title(station.name)
 
-    plt.tight_layout
+    #Plotting typical ranges 
+    plt.axhline(y=station.typical_range[0], linestyle = ':')
+    plt.axhline(y=station.typical_range[1], linestyle = ':')
+
+    plt.tight_layout()
+    plt.show()
 
     
