@@ -32,7 +32,7 @@ def stations_highest_rel_level(stations, N):
             pass
         else:
             #list of all stations and their relative water level
-            high_water_levels.append((i.name, i.relative_water_level()))
+            high_water_levels.append((i, i.relative_water_level()))
 
     
     #sort list biggest to smallest
