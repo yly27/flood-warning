@@ -1,9 +1,9 @@
 from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.station import MonitoringStation
 import random 
-from floodsystem.stationdata import build_station_list
+from floodsystem.stationdata import build_station_list, update_water_levels
 
-stations = bu
+stations = build_station_list()
 tester_stations = [MonitoringStation(
         station_id=1,
         measure_id=15,
@@ -49,14 +49,22 @@ def test_stations_level_over_threshold():
             assert test_list[i][1] > test_list[i+1][1]
 
 def test_stations_highest_rel_level():
-    N = random.randint(len(MonitoringStation))
-    highest_level_list = stations_highest_rel_level(stations, N)
+    update_water_levels(stations)
 
+    highest_level_list = stations_highest_rel_level(stations, 20)
     for i in range (len(highest_level_list)):
         #Check list is sorted with highest first
         if i < ((len(highest_level_list)) - 1):
             assert highest_level_list[i][1] > highest_level_list[i+1][1]
     
-     #Check every station in the list is over threshold
-    assert (len(highest_level_list)) == N
+    #Check there are 20 stations in the list as required
+    assert (len(highest_level_list)) == 20
+
+    tester_stations[0].latest_level = 1.5
+    tester_stations[1].latest_level = 12
+    test_list = stations_highest_rel_level(tester_stations, 1)
+    assert round(test_list[0][1]) == 3
+    assert test_list[0][0].name == 'Station 2' 
+    
+    
         
