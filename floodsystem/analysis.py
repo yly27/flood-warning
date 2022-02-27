@@ -1,3 +1,4 @@
+from pickle import HIGHEST_PROTOCOL
 from re import X
 from unicodedata import name
 import numpy as np
@@ -80,3 +81,23 @@ def risk_analysis(stations):
             pass
 
     return risk_dictionary
+
+
+
+def risk_rater(risk):
+    severe_tol = 0.3
+    high_tol = 0.2
+    moderate_tol = 0.1
+    low_tol = 0.05
+
+    if risk >= severe_tol:
+        return "Severe"
+
+    elif high_tol <= risk < severe_tol:
+        return "High"
+    
+    elif moderate_tol <= risk < severe_tol:
+        return "Moderate"
+
+    elif risk <= low_tol:
+        return "Low"
