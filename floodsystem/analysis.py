@@ -96,7 +96,7 @@ def risk_rater(risk):
     elif high_tol <= risk < severe_tol:
         return "High"
     
-    elif moderate_tol <= risk < severe_tol:
+    elif moderate_tol <= risk < high_tol:
         return "Moderate"
 
     elif risk <= low_tol:
