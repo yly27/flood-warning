@@ -2,7 +2,6 @@ from re import X
 from unicodedata import name
 import numpy as np
 import matplotlib
-from datetime import datetime, timedelta
 from .stationdata import build_station_list
 from floodsystem.station import MonitoringStation, inconsistent_typical_range_stations
 from floodsystem.stationdata import update_water_levels
@@ -44,6 +43,7 @@ def risk_analysis(stations):
 
     for i in consistent_stations:
         current_rel_water_levels.append(i.relative_water_level())
+
         dt = 2
         dates, levels = fetch_measure_levels(i.measure_id, dt=datetime.timedelta(days=dt))
         x = matplotlib.dates.date2num(dates)
