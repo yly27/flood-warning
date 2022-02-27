@@ -36,3 +36,10 @@ def test_stations_level_over_threshold():
 
     test_list = stations_level_over_threshold(tester_stations,0.5)
     assert test_list[0][1] > test_list[1][1]
+    
+    for i in range (len(test_list)):
+        assert test_list[i][1] > 0.5
+        if i < ((len(test_list)) - 1):
+            assert test_list[i][1] > test_list[i+1][1]
+    
+        
