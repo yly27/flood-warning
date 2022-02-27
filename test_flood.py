@@ -1,6 +1,9 @@
-from floodsystem.flood import stations_level_over_threshold
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 from floodsystem.station import MonitoringStation
+import random 
+from floodsystem.stationdata import build_station_list
 
+stations = bu
 tester_stations = [MonitoringStation(
         station_id=1,
         measure_id=15,
@@ -38,8 +41,22 @@ def test_stations_level_over_threshold():
     assert test_list[0][1] > test_list[1][1]
     
     for i in range (len(test_list)):
+        #Check every station in the list is over threshold
         assert test_list[i][1] > 0.5
+
+        #Check list is sorted with highest first
         if i < ((len(test_list)) - 1):
             assert test_list[i][1] > test_list[i+1][1]
+
+def test_stations_highest_rel_level():
+    N = random.randint(len(MonitoringStation))
+    highest_level_list = stations_highest_rel_level(stations, N)
+
+    for i in range (len(highest_level_list)):
+        #Check list is sorted with highest first
+        if i < ((len(highest_level_list)) - 1):
+            assert highest_level_list[i][1] > highest_level_list[i+1][1]
     
+     #Check every station in the list is over threshold
+    assert (len(highest_level_list)) == N
         
