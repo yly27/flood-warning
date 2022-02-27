@@ -9,7 +9,6 @@ def run():
     update_water_levels(stations)
 
     liszt = risk_analysis(stations)
-    print(liszt)
     
     final_list = sorted(liszt.items(), key = lambda x: x[1], reverse = True)
     
