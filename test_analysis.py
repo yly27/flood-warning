@@ -39,5 +39,4 @@ def test_polyfit():
 
     assert len(poly) != 0
     assert type(poly) == numpy.poly1d
-    
-'''lemme see whats going on'''
+  
