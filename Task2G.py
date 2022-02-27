@@ -6,6 +6,9 @@ def run():
     """Requirements for Task 2G"""
     
     stations = build_station_list()
+    #for station in risk_analysis(stations):
+    #    print("station {} risk level {}".format((station[0]).name, station[1]))
+
     print(risk_analysis(stations))
       
 
