@@ -40,22 +40,10 @@ def risk_analysis(stations):
     #Take the relative water level of every consistent station
     current_rel_water_levels = []
     update_water_levels(stations)
-    
+    rel_predicted = []
+
     for i in consistent_stations:
-        
         current_rel_water_levels.append(i.relative_water_level())
-
-    #Takes too long to check every station so just check top 50
-    
-    to_check = []
-
-    for i in consistent_stations: 
-        to_check.append(stations_highest_rel_level(stations, 40))
-        
-        
-    rel_predicted = []   
-   
-    for i in to_check:
         dt = 2
         dates, levels = fetch_measure_levels(i.measure_id, dt=datetime.timedelta(days=dt))
         x = matplotlib.dates.date2num(dates)
@@ -66,6 +54,7 @@ def risk_analysis(stations):
         predicted = poly(day_today + 1)
         calculation =((predicted - i.typical_range[0])/(i.typical_range[1] - i.typical_range[0]))
         rel_predicted.append(calculation)
+    return rel_predicted
 
-    return rel_predicted[:5]
+    
 
