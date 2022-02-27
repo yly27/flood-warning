@@ -22,7 +22,7 @@ def test_risk_rater():
 def test_risk_analysis():
     stations = build_station_list()
     update_water_levels(stations)
-    assert (len(risk_analysis(stations))) > 0
+    assert (len(list(risk_analysis(stations)))) > 0
     assert (type(risk_analysis(stations))) == dict
 
 def test_polyfit():
