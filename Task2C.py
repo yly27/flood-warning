@@ -10,7 +10,7 @@ def run():
     update_water_levels(stations)
 
     high_ten = stations_highest_rel_level(stations, 10)
-    print(len(high_ten))
+    
     #find top 10 most at risk
     for station in high_ten:
         print("{} {}".format((station[0]).name, station[1]))
