@@ -11,6 +11,7 @@ from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.flood import stations_highest_rel_level
 from .utils import sorted_by_key
 
+
 def polyfit(dates, levels, p):
     # Create set of data points
     x = matplotlib.dates.date2num(dates)
