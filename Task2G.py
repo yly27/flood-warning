@@ -14,7 +14,7 @@ def run():
     final_list = sorted(liszt.items(), key = lambda x: x[1], reverse = True)
     
     for i in final_list:
-        print("Town: {} Risk level: {} Risk rating: {}".format(i[0], i[1], risk_rater(i[1])) )
+        print("Town: {} , Risk level: {} , Risk rating: {}".format(i[0], i[1], risk_rater(i[1])) )
       
 
 if __name__ == "__main__":

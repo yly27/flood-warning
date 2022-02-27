@@ -48,6 +48,9 @@ def test_stations_level_over_threshold():
         if i < ((len(test_list)) - 1):
             assert test_list[i][1] > test_list[i+1][1]
 
+
+'''Task 2C Test'''
+
 def test_stations_highest_rel_level():
     update_water_levels(stations)
 
@@ -60,6 +63,7 @@ def test_stations_highest_rel_level():
     #Check there are 20 stations in the list as required
     assert (len(highest_level_list)) == 20
 
+    #Check relative water levels and corresponding station is correct using test data
     tester_stations[0].latest_level = 1.5
     tester_stations[1].latest_level = 12
     test_list = stations_highest_rel_level(tester_stations, 1)
