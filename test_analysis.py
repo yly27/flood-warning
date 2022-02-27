@@ -25,18 +25,18 @@ def test_risk_analysis():
     assert (len(risk_analysis(stations))) > 0
     assert (type(risk_analysis(stations))) == dict
 
-def test_polyfit():
-    stations = build_station_list()
-    update_water_levels(stations)
+#def test_polyfit():
+ #   stations = build_station_list()
+  #  update_water_levels(stations)
 
     #random station
-    n = random.randint(1,50)
-    test_station = stations[n]
+   # n = random.randint(1,50)
+    #test_station = stations[n]
 
-    dates, levels = fetch_measure_levels(test_station.measure_id, dt=datetime.timedelta(days=4))
-    poly, d0 = polyfit(dates, levels, 5)
+    #dates, levels = fetch_measure_levels(test_station.measure_id, dt=datetime.timedelta(days=4))
+    #poly, d0 = polyfit(dates, levels, 5)
 
 
-    assert len(poly) != 0
-    assert type(poly) == numpy.poly1d
+    #assert len(poly) != 0
+    #assert type(poly) == numpy.poly1d
     
