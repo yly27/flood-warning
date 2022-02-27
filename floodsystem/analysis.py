@@ -9,6 +9,7 @@ from floodsystem.stationdata import update_water_levels
 import datetime
 from floodsystem.datafetcher import fetch_measure_levels
 from floodsystem.flood import stations_highest_rel_level
+from .utils import sorted_by_key
 
 def polyfit(dates, levels, p):
     # Create set of data points
@@ -33,28 +34,50 @@ def risk_analysis(stations):
     inconsistent_station_names = inconsistent_typical_range_stations(stations)
     consistent_stations = []
     for i in stations:
-        for k in range (len(inconsistent_station_names)):
-            if i.name != inconsistent_station_names[k]:
-                consistent_stations.append(i)
+        if i.name not in inconsistent_station_names:
+            consistent_stations.append(i)
 
     #Take the relative water level of every consistent station
-    current_rel_water_levels = []
     update_water_levels(stations)
-    rel_predicted = []
 
-    for i in consistent_stations:
-        current_rel_water_levels.append(i.relative_water_level())
+    list_risk_scores = []
+    temp_list = consistent_stations[:50]        #takes too long to check all so just checks 50
+
+    for station in temp_list:
         dt = 2
-        dates, levels = fetch_measure_levels(i.measure_id, dt=datetime.timedelta(days=dt))
-        x = matplotlib.dates.date2num(dates)
-        poly, d0 = polyfit(dates, levels, 4)
-        day_today = max(x - d0)
+        dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=dt))
+        
+        if dates == None or levels == None:
+            pass
+        else:
+            x = matplotlib.dates.date2num(dates)
+            try:
+                poly, d0 = polyfit(dates, levels, 4)
+            except (IndexError):
+                pass
 
-        #predict tomorrow
-        predicted = poly(day_today + 1)
-        calculation =((predicted - i.typical_range[0])/(i.typical_range[1] - i.typical_range[0]))
-        rel_predicted.append(calculation)
-    return rel_predicted
+            day_today = max(x - d0)
 
-    
+        #take first derivative
+            d1_poly = poly.deriv()
+            current_increase_rate = d1_poly(day_today)
 
+        #create weighted risk score
+            current_rel_level_weight = 0.6
+            current_increase_rate_weight = 0.4
+            risk_score = ((current_rel_level_weight*station.relative_water_level()) +  (current_increase_rate_weight*current_increase_rate))
+            list_risk_scores.append(risk_score)
+
+
+    risky_list = zip(temp_list,list_risk_scores)
+
+    risk_dictionary = {}
+
+    for station in risky_list:
+        if ((station[0]).town not in risk_dictionary.keys()) or station[1] > risk_dictionary[(station[1]).town]:
+            risk_dictionary[(station[0]).town] = station[1]
+        
+        else:
+            pass
+
+    return risk_dictionary
