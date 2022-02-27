@@ -73,6 +73,7 @@ def risk_analysis(stations):
 
     risk_dictionary = {}
 
+    #the risk level for a town is that of the station recording highest relative water levels for that town
     for station in risky_list:
         if ((station[0]).town not in risk_dictionary.keys()) or station[1] > risk_dictionary[(station[1]).town]:
             risk_dictionary[(station[0]).town] = station[1]
