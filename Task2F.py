@@ -12,6 +12,7 @@ def run():
     update_water_levels(stations)
 
     high_five = stations_highest_rel_level(stations, 5)
+    print('Stations with a relative water level above 100 have been removed')
 
     for i in high_five:
         station = i[0]

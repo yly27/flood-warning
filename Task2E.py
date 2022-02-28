@@ -18,6 +18,8 @@ def run():
     at_risk_names = []
     for i in stations_highest_rel_level(station, 5):
         at_risk_names.append(i[0].name)
+    
+    print('Stations with a relative water level above 100 have been removed')
 
 
     #Station data for these 5 at risk stations
@@ -35,6 +37,7 @@ def run():
         #Plotting graph for each station (5 different graphs)
         plot_water_levels(i, dates, levels)
       
+    
 
 if __name__ == "__main__":
     print("*** Task 2E: CUED Part IA Flood Warning System ***")
